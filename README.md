@@ -1,6 +1,10 @@
  # Intro to Form Libraries
 
-## Signing Up for 
+## Pie of the Week
+
+![pumpkin pie slice](https://dinnerthendessert.com/wp-content/uploads/2019/01/Blueberry-Pie-2.jpg)
+
+In this lab, we'll be signing up for a fictional subscription service called Weekly pie. Every week, Weekly Pie will deliver you a surprise pie. When we sign users up, we'll collect their pie preferences, in addition to their basic contact information. 
 
 ## Objectives
 
@@ -11,14 +15,11 @@
 
 This lab is designed to get you interacting with form libraries. There are a wide variety of form libraries and ways to handle form behavior in general. Once you get used to the core functionality of a single library, however, the learning curve for other libraries will be less steep. For the purposes of this lab, we'll focus on two of the most commonly used libraries at Giant Machines: [Formik](https://formik.org/) and [Yup](https://www.npmjs.com/package/yup). 
 
-In previous experiences, you may have built forms from scratch. So, you may be wondering why we use libraries like Formik and Yup to handle form behavior for us. Simply put, many forms have very similar behaviors, and using libraries like Formik and Yup help save time and write more concise code for these predictable form behaviors, in addition to ensuring consistent handling of edge cases and error states. 
+In previous experiences, you may have built forms from scratch. So, you may be wondering why we use libraries like Formik and Yup to handle form behavior for us. Simply put, many forms have very similar behaviors, and using libraries like Formik and Yup help save time and write more concise code for these predictable form behaviors, in addition to ensuring consistent handling of edge cases and error states. Or, as the library's repo description reads, "Build forms in React, without the tears 😭"
 
 # Key Vocab
 
-- `store` - global readonly state. Due to its readonly state, reducers are used to mutate the state.
-- `reducers` - pure functions whose responsibility is to process actions and manipulate the store's state.
-- `actions` - following the Flux Standard Action (FSA) pattern, actions are objects that communicate to redux on what is happening. Reducers will interpret these action objects and decide what should be done.
-- `selectors` - getter functions to retrieve specific data from redux. Can also be used to increase performance of constantly getting information from the store by memoization.s
+- `validation` - the process of checking input values prior to submitting to ensure correct data types, formats, etc.
 
 ## Directions
 
@@ -27,30 +28,18 @@ This lab has been tested in VSCode. You're welcome to run it elsewhere if you li
 ## Getting Started:
 
 1. Clone this repository down to your local environment and navigate to the root directory. Run `npm install` and then `npm start` to ensure you can preview your app.
-1. Head to the [Giphy Developer Site](https://developers.giphy.com) and sign up for an account. Then head to the [dashboard](https://developers.giphy.com/dashboard/) and press the **+** icon in the **Your Apps** section to generate a new API key. You'll know you're ready to start the lab when your dashboard looks like:
 
-   ![api generated screenshot](api_key_generated.jpg)
-
-1. Take some time to explore the app as it currently exists. Notice that it currently renders 5 gifs, which are coming from `src/data/sample_data.ts`. For this lab, we'll work to move our data fetching and storage from the data file to a redux store.
+1. Take some time to explore the app as it currently exists. Notice that we have created the `SignUpForm` component already - this is where you'll do the majority of your work for this lab.
 
 ## Guidance:
 
-1. **Add Sample Data to Redux Store** - to start this lab, we'll be working with the sample data file. The goal of this step is to take the data stored in the `src/data/sample_data.ts` file and store it in our redux store. Notice that in `App.tsx`, we have already added in the initial Redux store instantiation with the `configureStore` function and then wrapped our `App` component in the `Provider` component from `react-redux`
-
-   ![redux store setup](redux_setup.png)
-
-    You'll need to work in the `actions.ts`, `reducer.ts`, and `types.ts` files to add the data from data_store.ts to the redux store. You'll know you were succesful when you can see the initial state in the `State` tab of the Redux dev tools in your browser.
-
-1. **Incorporate stored data into the app** - Now that you have the sample data in your redux store, we'll need to use the data from teh redux store. In the `App.tsx` file, use the `useSelector` hook to pull in the data from your redux store. Visually, nothing in your app should change. Check to make sure that you're using the redux store exclusively by removing all direct references to the sample data file from your `App.tsx` file.
-
-1. **Fetch Data from API and add to Redux Store** - The final step is to substitute the sample data for actual data from the Giphy API. Fetching data from an API requires us to manage asynchronous workflows with Redux for the first time in our work so far. To do this, you'll need to use `redux-thunk`. For more information about how Thunks work, we recommend checking out the [Redux documentation on async logic](https://redux.js.org/tutorials/essentials/part-5-async-logic). For this exercise, you'll need to use the API key you generated, and use the "trending" API endpoint.
+1. **Create a basic Formik form** - get a basic form up and running without styling. We recommend using [this example](https://formik.org/docs/examples/typescript) to get started.
+1. **Add in styling using Styled Components** - Check out this article [Styled Components + React Formik](https://medium.com/flyparakeet/react-formik-styled-components-add78b37971f) for a good example of one way to use Formik with styled components. Refactor your form to match the mockup. By the end of this refactor, you should have **FILL IN FIELDS TO CREATE** on your form matched to the mock-up, using exclusively styled components. A quick visual check of your code should show no raw HTML elements - all should be named styled components. 
+1. **Add Fields & Style** - Create the remaining fields from the mock-up. 
+1. **Form Validation** - Check to ensure form validation matches the error states in the mockup. This should be handled by Yup. 
+1. **Handle Submit** -  Ensure proper submit behavior. For now, since we're not submitting to an actual API, you should simply check to ensure that the state of the SignUpForm component has been properly stored using your React dev tools. 
 
 ## Extensions
 Once you are done with the core exercises above, you are welcome to choose any of the below extensions:
-1. Improve the page with custom CSS
-2. The Giphy API has a number of different endpoints. We're using the "trending" endpoint above, but see if you can give the user the option to choose which endpoint you fetch from, and update the Redux store accordingly. 
-3. Add a search bar and allow the user to search for gifs around a theme
-
-## Final Thoughts
-
-Redux is designed to manage large, complex apps, and is itself quite complex. It will take time to get used to using it. Redux uses quite a bit of boilerplate logic, which means that the general structure and patterns will remain familiar application-to-application. - it's okay if you don't understand everything right away, and are pattern-matching for a little while!
+1. Try repeating the exercise with [React Hook Form](https://react-hook-form.com/), since you'll see both Formik and React Hook Form used on different projects
+1. Try adding additional complex form input types (like a slider or single select with styled buttons), and ensure that their state is still properly stored and manipulated (using the React dev tools).  
