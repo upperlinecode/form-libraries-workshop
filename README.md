@@ -33,7 +33,7 @@ This lab has been tested in VSCode. You're welcome to run it elsewhere if you li
 
 ## Guidance:
 
-1. **Create a basic Formik form** - 
+1. **Create a basic Formik form** - get a basic form up and running without styling. We recommend using [this example](https://formik.org/docs/examples/typescript) to get started.
 1. **Add in styling using Styled Components** - Check out this article [Styled Components + React Formik](https://medium.com/flyparakeet/react-formik-styled-components-add78b37971f) for a good example of one way to use Formik with styled components. Refactor your form to match the mockup. By the end of this refactor, you should have **FILL IN FIELDS TO CREATE** on your form matched to the mock-up, using exclusively styled components. A quick visual check of your code should show no raw HTML elements - all should be named styled components. 
 1. **Add Fields & Style** - Create the remaining fields from the mock-up. 
 1. **Form Validation** - Check to ensure form validation matches the error states in the mockup. This should be handled by Yup. 
