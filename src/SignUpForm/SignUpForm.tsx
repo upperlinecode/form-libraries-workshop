@@ -1,7 +1,14 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom";
-import { Formik, Field, Form, FormikHelpers } from "formik";
-import { SignUpFormRoot } from "./SignUpForm.styles";
+import { Formik, Form, FormikHelpers } from "formik";
+import {
+  SignUpFormRoot,
+  Label,
+  RadioGroup,
+  TextField,
+  RadioField,
+  Button,
+} from "./SignUpForm.styles";
 import { reduceEachLeadingCommentRange } from "typescript";
 
 interface Values {
@@ -31,40 +38,39 @@ const SignUpForm = () => {
         <SignUpFormRoot>
           <Form>
             <h1>Sign Up for Weekly 🥧</h1>
-            <label htmlFor="firstName">First Name</label>
-            <Field id="firstName" name="firstName" placeholder="John" />
-            <label htmlFor="lastName">Last Name</label>
-            <Field id="lastName" name="lastName" placeholder="Doe" />
+            <Label htmlFor="firstName">First Name</Label>
+            <TextField id="firstName" name="firstName" placeholder="John" />
+            <Label htmlFor="lastName">Last Name</Label>
+            <TextField id="lastName" name="lastName" placeholder="Doe" />
 
-            <label htmlFor="email">Email</label>
-            <Field
+            <Label htmlFor="email">Email</Label>
+            <TextField
               id="email"
               name="email"
               placeholder="john@acme.com"
               type="email"
             />
-            <div id="pieSize">Pie Size Preference</div>
-            <div role="group" aria-labelledby="pieSize">
-              <label>
-                <Field type="radio" name="size" value="handPie" />
+            <Label id="pieSize">Pie Size Preference</Label>
+            <RadioGroup role="group" aria-Labelledby="pieSize">
+              <Label>
+                <RadioField type="radio" name="size" value="handPie" />
                 Hand Pie
-              </label>
-              <label>
-                <Field type="radio" name="size" value="small" />
+              </Label>
+              <Label>
+                <RadioField type="radio" name="size" value="small" />
                 Small (6 inch diameter)
-              </label>
-              <label>
-                <Field type="radio" name="size" value="medium" />
+              </Label>
+              <Label>
+                <RadioField type="radio" name="size" value="medium" />
                 Medium (10 inch diameter)
-              </label>
-              <label>
-                <Field type="radio" name="size" value="large" />
+              </Label>
+              <Label>
+                <RadioField type="radio" name="size" value="large" />
                 Large (14 inch diameter)
-              </label>
-              {/* <div>Picked: {values.size}</div> */}
-            </div>
+              </Label>
+            </RadioGroup>
 
-            <button type="submit">Submit</button>
+            <Button type="submit">Submit</Button>
           </Form>
         </SignUpFormRoot>
       )}
