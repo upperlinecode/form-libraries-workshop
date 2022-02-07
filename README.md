@@ -16,7 +16,6 @@ In previous experiences, you may have built forms from scratch. So, you may be w
 # Key Vocab
 
 - `validation` - the process of checking input values prior to submitting to ensure correct data types, formats, etc.
-- ``
 
 ## Directions
 
@@ -25,11 +24,8 @@ This lab has been tested in VSCode. You're welcome to run it elsewhere if you li
 ## Getting Started:
 
 1. Clone this repository down to your local environment and navigate to the root directory. Run `npm install` and then `npm start` to ensure you can preview your app.
-1. Head to the [Giphy Developer Site](https://developers.giphy.com) and sign up for an account. Then head to the [dashboard](https://developers.giphy.com/dashboard/) and press the **+** icon in the **Your Apps** section to generate a new API key. You'll know you're ready to start the lab when your dashboard looks like:
 
-   ![api generated screenshot](api_key_generated.jpg)
-
-1. Take some time to explore the app as it currently exists. Notice that it currently renders 5 gifs, which are coming from `src/data/sample_data.ts`. For this lab, we'll work to move our data fetching and storage from the data file to a redux store.
+1. Take some time to explore the app as it currently exists. Notice that we have created the `SignUpForm` component already - this is where you'll do the majority of your work for this lab.
 
 ## Guidance:
 
@@ -41,5 +37,5 @@ This lab has been tested in VSCode. You're welcome to run it elsewhere if you li
 
 ## Extensions
 Once you are done with the core exercises above, you are welcome to choose any of the below extensions:
-1. Try repeating the exercise with React Form, since you'll see both Formik and React Form used on different projects
-1. 
+1. Try repeating the exercise with [React Hook Form](https://react-hook-form.com/), since you'll see both Formik and React Hook Form used on different projects
+1. Try adding additional complex form input types (like a slider or single select with styled buttons), and ensure that their state is still properly stored and manipulated (using the React dev tools).  
