@@ -1,46 +1,45 @@
-# Getting Started with Create React App
+ # Intro to Form Libraries
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Signing Up for 
 
-## Available Scripts
+## Objectives
 
-In the project directory, you can run:
+- Understand *why* we use form libraries
+- Implement form libraries to create a basic sign up form with fully functional state management, input validation, and error-handling.
 
-### `npm start`
+## Why?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This lab is designed to get you interacting with form libraries. There are a wide variety of form libraries and ways to handle form behavior in general. Once you get used to the core functionality of a single library, however, the learning curve for other libraries will be less steep. For the purposes of this lab, we'll focus on two of the most commonly used libraries at Giant Machines: [Formik](https://formik.org/) and [Yup](https://www.npmjs.com/package/yup). 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+In previous experiences, you may have built forms from scratch. So, you may be wondering why we use libraries like Formik and Yup to handle form behavior for us. Simply put, many forms have very similar behaviors, and using libraries like Formik and Yup help save time and write more concise code for these predictable form behaviors, in addition to ensuring consistent handling of edge cases and error states. Or, as the library's repo description reads, "Build forms in React, without the tears 😭"
 
-### `npm test`
+# Key Vocab
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- `validation` - the process of checking input values prior to submitting to ensure correct data types, formats, etc.
+- ``
 
-### `npm run build`
+## Directions
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This lab has been tested in VSCode. You're welcome to run it elsewhere if you like, but the instructions are written with the assumption that you're operating on your code in the VSCode IDE.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Getting Started:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Clone this repository down to your local environment and navigate to the root directory. Run `npm install` and then `npm start` to ensure you can preview your app.
+1. Head to the [Giphy Developer Site](https://developers.giphy.com) and sign up for an account. Then head to the [dashboard](https://developers.giphy.com/dashboard/) and press the **+** icon in the **Your Apps** section to generate a new API key. You'll know you're ready to start the lab when your dashboard looks like:
 
-### `npm run eject`
+   ![api generated screenshot](api_key_generated.jpg)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Take some time to explore the app as it currently exists. Notice that it currently renders 5 gifs, which are coming from `src/data/sample_data.ts`. For this lab, we'll work to move our data fetching and storage from the data file to a redux store.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Guidance:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. **Create a basic Formik form** - 
+1. **Add in styling using Styled Components** - Check out this article [Styled Components + React Formik](https://medium.com/flyparakeet/react-formik-styled-components-add78b37971f) for a good example of one way to use Formik with styled components. Refactor your form to match the mockup. By the end of this refactor, you should have **FILL IN FIELDS TO CREATE** on your form matched to the mock-up, using exclusively styled components. A quick visual check of your code should show no raw HTML elements - all should be named styled components. 
+1. **Add Fields & Style** - Create the remaining fields from the mock-up. 
+1. **Form Validation** - Check to ensure form validation matches the error states in the mockup. This should be handled by Yup. 
+1. **Handle Submit** -  Ensure proper submit behavior. For now, since we're not submitting to an actual API, you should simply check to ensure that the state of the SignUpForm component has been properly stored using your React dev tools. 
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Extensions
+Once you are done with the core exercises above, you are welcome to choose any of the below extensions:
+1. Try repeating the exercise with React Form, since you'll see both Formik and React Form used on different projects
+1. 
