@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const SignUpFormRoot = styled.div`
   width: 50%;
-  border: 2px var(--dark-purple) solid;
   border-radius: 5px;
   margin-top: 30px;
   padding: 40px 3%;
@@ -41,6 +40,7 @@ export const RadioGroup = styled.div`
 
   & input {
     margin-bottom: 5px;
+    padding-left: 10px;
   }
 `;
 
@@ -62,6 +62,7 @@ export const TextField = styled.input`
   border-width: 2px;
   border-style: solid;
   height: 40px;
+  padding-left: 10px;
 
   &:focus {
   }
