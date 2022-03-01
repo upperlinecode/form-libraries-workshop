@@ -13,6 +13,7 @@ body {
   --dark-purple: #6e4555;
   background: url('https://www.inspiredtaste.net/wp-content/uploads/2016/06/Blueberry-Pie-Recipe-2-1200.jpg');
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
 code {

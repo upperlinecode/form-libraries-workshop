@@ -4,9 +4,10 @@ export const SignUpFormRoot = styled.div`
   width: 50%;
   border-radius: 5px;
   margin-top: 30px;
-  padding: 40px 3%;
+  padding: 40px 3% 100px;
   background: var(--light-purple-transparent);
   color: var(--navy);
+
   & form {
     display: flex;
     flex-direction: column;
@@ -14,15 +15,14 @@ export const SignUpFormRoot = styled.div`
     justify-content: center;
   }
 
-  & h1 {
-    margin: 0;
-    margin-bottom: 20px;
-  }
-
   & button {
     margin: 20px;
   }
 `;
+
+export const Title = styled.h1`
+  margin: 0;
+  margin-bottom: 20px;`
 
 export const Label = styled.label`
   font-weight: bold;
@@ -51,8 +51,6 @@ export const RadioField = styled.input`
   border-width: 2px;
   border-style: solid;
 
-  &:focus {
-  }
 `;
 
 export const TextField = styled.input`
@@ -63,9 +61,6 @@ export const TextField = styled.input`
   border-style: solid;
   height: 40px;
   padding-left: 10px;
-
-  &:focus {
-  }
 `;
 
 export const Button = styled.button`

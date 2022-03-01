@@ -21,7 +21,7 @@ In previous experiences, you may have built forms from scratch. So, you may be w
 
 - `validation` - the process of checking input values prior to submitting to ensure correct data types, formats, etc.
 
-## Getting Started:
+## Getting Started
 
 1. Clone this repository down to your local environment and navigate to the root directory. Run `npm install` and then `npm start` to ensure you can preview your app.
 
@@ -29,13 +29,14 @@ In previous experiences, you may have built forms from scratch. So, you may be w
 
 ## Guidance
 
-1. **Create a basic Formik form** - get a basic form up and running without styling. We recommend using [this example](https://formik.org/docs/examples/typescript) to get started.
+1. **Create a basic Formik form** - get a basic form up and running without styling. Note that you should be using the [useFormik hook](https://formik.org/docs/api/useFormik), not the `<Formik>` component.  
 1. **Add in styling using Styled Components** - Check out this article [Styled Components + React Formik](https://medium.com/flyparakeet/react-formik-styled-components-add78b37971f) for a good example of one way to use Formik with styled components. Refactor your form to match the mockup. By the end of this refactor, you should have the `first name`, `last name`, `email`, and `pie size` fields on your form matched to the mock-up, using exclusively styled components. A quick visual check of your code should show no raw HTML elements - all should be named styled components.
 1. **Add Fields & Style** - Create the remaining fields from the mock-up.
 1. **Form Validation** - Check to ensure form validation matches the error states in the mockup. This should be handled by Yup.
 1. **Handle Submit** - Ensure proper submit behavior. For now, since we're not submitting to an actual API, you should simply check to ensure that the state of the SignUpForm component has been properly stored using your React dev tools.
 
 ## Mock Up
+
 ![form mockup](mockup.png)
 
 ## Extensions
