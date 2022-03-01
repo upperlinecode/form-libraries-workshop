@@ -78,19 +78,19 @@ const SignUpForm = () => {
 
         <RadioGroup role="group" aria-Labelledby="pieSize">
           <Label>
-            <RadioField type="radio" name="size" value="handPie" />
+            <RadioField type="radio" name="size" value="handPie" onChange={formik.handleChange} />
             Hand Pie
           </Label>
           <Label>
-            <RadioField type="radio" name="size" value="small" />
+            <RadioField type="radio" name="size" value="small" onChange={formik.handleChange} />
             Small (6 inch diameter)
           </Label>
           <Label>
-            <RadioField type="radio" name="size" value="medium" />
+            <RadioField type="radio" name="size" value="medium" onChange={formik.handleChange} />
             Medium (10 inch diameter)
           </Label>
           <Label>
-            <RadioField type="radio" name="size" value="large" />
+            <RadioField type="radio" name="size" value="large" onChange={formik.handleChange} />
             Large (14 inch diameter)
           </Label>
         </RadioGroup>

@@ -30,10 +30,13 @@ In previous experiences, you may have built forms from scratch. So, you may be w
 ## Guidance
 
 1. **Create a basic Formik form** - get a basic form up and running without styling. Note that you should be using the [useFormik hook](https://formik.org/docs/api/useFormik), not the `<Formik>` component.  
-1. **Add in styling using Styled Components** - Check out this article [Styled Components + React Formik](https://medium.com/flyparakeet/react-formik-styled-components-add78b37971f) for a good example of one way to use Formik with styled components. Refactor your form to match the mockup. By the end of this refactor, you should have the `first name`, `last name`, `email`, and `pie size` fields on your form matched to the mock-up, using exclusively styled components. A quick visual check of your code should show no raw HTML elements - all should be named styled components.
-1. **Add Fields & Style** - Create the remaining fields from the mock-up.
-1. **Form Validation** - Check to ensure form validation matches the error states in the mockup. This should be handled by Yup.
-1. **Handle Submit** - Ensure proper submit behavior. For now, since we're not submitting to an actual API, you should simply check to ensure that the state of the SignUpForm component has been properly stored using your React dev tools.
+1. **Add in styling using Styled Components** - Refactor your form to match the mockup by creating styled components. By the end of this refactor, you should have the `first name`, `last name`, `email`, and `pie size` fields on your form matched to the mock-up, using exclusively styled components. A quick visual check of your code should show no raw HTML elements - all should be named styled components.
+1. **Form Validation** - Add form validation with Yup. For now, this should check that first name and last name are longer than 2 characters and shorter than 50 characters, the email is valid, and that a size has been selected.
+1. **Handle Submit** - Check to make sure your function works by writing an onSubmit function that creates an alert with all of the stored form values. You'll know you were successful in submitting the form for now if you can see something like this as an alert:
+
+    ![image of alert indicating successful submission](submission_success.png)
+
+    Check to make sure that you can't submit and see the alert if you have inputted an invalid first name, last name or email, or have failed to provide a pie size.
 
 ## Mock Up
 
@@ -45,3 +48,4 @@ Once you are done with the core exercises above, you are welcome to choose any o
 
 1. Try repeating the exercise with [React Hook Form](https://react-hook-form.com/), since you'll see both Formik and React Hook Form used on different projects
 1. Try adding additional complex form input types (like a slider or single select with styled buttons), and ensure that their state is still properly stored and manipulated (using the React dev tools).
+1. Add additional error handling so that a user receives more readable alert messages and error messages when they fail to enter valid data.
