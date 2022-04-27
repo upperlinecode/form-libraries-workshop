@@ -1,102 +1,145 @@
-import { useFormik, FormikProps, FormikHelpers } from 'formik';
-import * as Yup from 'yup';
+import { useFormik } from "formik";
+import * as Yup from "yup";
 import {
-  SignUpFormRoot,
+  Button,
+  ErrorMessage,
+  Form,
+  Input,
   Label,
   RadioGroup,
-  TextField,
-  RadioField,
-  Button,
+  Root,
   Title,
 } from "./SignUpForm.styles";
 
-interface Values {
-  firstName: string;
-  lastName: string;
-  email: string;
-  size: string;
-}
-
-const SignUpSchema = Yup.object().shape({
-  firstName: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
-  lastName: Yup.string()
-    .min(2, 'Too Short!')
-    .max(50, 'Too Long!')
-    .required('Required'),
-  email: Yup.string().email('Invalid email').required('Required'),
-  size: Yup.string().required('Required')
+const validationSchema = Yup.object({
+  firstName: Yup.string().min(3).max(10).required(),
+  lastName: Yup.string().min(3).max(10),
+  email: Yup.string().email().required(),
+  pieSizePreference: Yup.string()
+    .oneOf(["hand", "small", "medium", "large"])
+    .required(),
 });
 
 const SignUpForm = () => {
-  const formik: FormikProps<Values> = useFormik<Values>({
-    initialValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-      size: ''
-    },
-    onSubmit: (values: Values) => {
-      setTimeout(() => {
-        alert(JSON.stringify(values, null, 2));
-      }, 500);
-    },
-    validationSchema: SignUpSchema
-  });
+  const { values, touched, errors, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        pieSizePreference: "",
+      },
+      onSubmit: (submittedValues) => {
+        alert(JSON.stringify(submittedValues, null, 2));
+      },
+      validationSchema,
+    });
+
   return (
-    <SignUpFormRoot>
-      <form onSubmit={formik.handleSubmit}>
-        <Title> Sign Up for Weekly 🥧</Title>
-        <Label htmlFor="firstName">First Name</Label>
-        <TextField
-          id="firstName"
-          name="firstName"
-          placeholder="John"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.firstName} />
-        <Label htmlFor="lastName">Last Name</Label>
-        <TextField
-          id="lastName"
-          name="lastName"
-          placeholder="Doe"
-          type="text"
-          onChange={formik.handleChange}
-          value={formik.values.lastName} />
+    <Root className="SignUpForm">
+      <Title>Weekly Pie Sign Up</Title>
 
-        <Label htmlFor="email">Email</Label>
-        <TextField
-          id="email"
-          name="email"
-          placeholder="john@acme.com"
-          type="email"
-          onChange={formik.handleChange}
-          value={formik.values.email}
-        />
+      <Form onSubmit={handleSubmit}>
+        <Label>
+          First Name
+          <Input
+            name="firstName"
+            onBlur={handleBlur}
+            onChange={handleChange}
+            type="text"
+            value={values.firstName}
+          />
+        </Label>
+        {touched.firstName && errors.firstName && (
+          <ErrorMessage>{errors.firstName}</ErrorMessage>
+        )}
 
-        <RadioGroup role="group" aria-Labelledby="pieSize">
-          <Label>
-            <RadioField type="radio" name="size" value="handPie" onChange={formik.handleChange} />
+        <Label>
+          Last Name
+          <Input
+            name="lastName"
+            onBlur={handleBlur}
+            onChange={handleChange}
+            type="text"
+            value={values.lastName}
+          />
+        </Label>
+        {touched.lastName && errors.lastName && (
+          <ErrorMessage>{errors.lastName}</ErrorMessage>
+        )}
+
+        <Label>
+          Email
+          <Input
+            name="email"
+            onBlur={handleBlur}
+            onChange={handleChange}
+            type="text"
+            value={values.email}
+          />
+        </Label>
+        {touched.email && errors.email && (
+          <ErrorMessage>{errors.email}</ErrorMessage>
+        )}
+
+        <RadioGroup>
+          <p>Pie Size Preference</p>
+          <label>
+            <input
+              checked={values.pieSizePreference === "hand"}
+              name="pieSizePreference"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              type="radio"
+              value="hand"
+            />
             Hand Pie
-          </Label>
-          <Label>
-            <RadioField type="radio" name="size" value="small" onChange={formik.handleChange} />
+          </label>
+
+          <label>
+            <input
+              checked={values.pieSizePreference === "small"}
+              name="pieSizePreference"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              type="radio"
+              value="small"
+            />
             Small (6 inch diameter)
-          </Label>
-          <Label>
-            <RadioField type="radio" name="size" value="medium" onChange={formik.handleChange} />
+          </label>
+
+          <label>
+            <input
+              checked={values.pieSizePreference === "medium"}
+              name="pieSizePreference"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              type="radio"
+              value="medium"
+            />
             Medium (10 inch diameter)
-          </Label>
-          <Label>
-            <RadioField type="radio" name="size" value="large" onChange={formik.handleChange} />
+          </label>
+
+          <label>
+            <input
+              checked={values.pieSizePreference === "large"}
+              name="pieSizePreference"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              type="radio"
+              value="large"
+            />
             Large (14 inch diameter)
-          </Label>
+          </label>
+          {touched.pieSizePreference && errors.pieSizePreference && (
+            <ErrorMessage>{errors.pieSizePreference}</ErrorMessage>
+          )}
         </RadioGroup>
+
         <Button type="submit">Submit</Button>
-      </form>
-    </SignUpFormRoot>
+      </Form>
+    </Root>
+
   );
 };
 
