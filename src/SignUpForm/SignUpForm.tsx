@@ -1,5 +1,15 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import {
+  Button,
+  ErrorMessage,
+  Form,
+  Input,
+  Label,
+  RadioGroup,
+  Root,
+  Title,
+} from "./SignUpForm.styles";
 
 const validationSchema = Yup.object({
   firstName: Yup.string().min(3).max(10).required(),
@@ -26,101 +36,109 @@ const SignUpForm = () => {
     });
 
   return (
-    <div className="SignUpForm">
-      <h1>Weekly Pie Sign Up</h1>
+    <Root className="SignUpForm">
+      <Title>Weekly Pie Sign Up</Title>
 
-      <form onSubmit={handleSubmit}>
-        <label>
+      <Form onSubmit={handleSubmit}>
+        <Label>
           First Name
-          <input
+          <Input
             name="firstName"
             onBlur={handleBlur}
             onChange={handleChange}
             type="text"
             value={values.firstName}
           />
-        </label>
-        {touched.firstName && errors.firstName && <p>{errors.firstName}</p>}
+        </Label>
+        {touched.firstName && errors.firstName && (
+          <ErrorMessage>{errors.firstName}</ErrorMessage>
+        )}
 
-        <label>
+        <Label>
           Last Name
-          <input
+          <Input
             name="lastName"
             onBlur={handleBlur}
             onChange={handleChange}
             type="text"
             value={values.lastName}
           />
-        </label>
-        {touched.lastName && errors.lastName && <p>{errors.lastName}</p>}
+        </Label>
+        {touched.lastName && errors.lastName && (
+          <ErrorMessage>{errors.lastName}</ErrorMessage>
+        )}
 
-        <label>
+        <Label>
           Email
-          <input
+          <Input
             name="email"
             onBlur={handleBlur}
             onChange={handleChange}
             type="text"
             value={values.email}
           />
-        </label>
-        {touched.email && errors.email && <p>{errors.email}</p>}
-
-        <p>Pie Size Preference</p>
-        <label>
-          <input
-            checked={values.pieSizePreference === "hand"}
-            name="pieSizePreference"
-            onBlur={handleBlur}
-            onChange={handleChange}
-            type="radio"
-            value="hand"
-          />
-          Hand Pie
-        </label>
-
-        <label>
-          <input
-            checked={values.pieSizePreference === "small"}
-            name="pieSizePreference"
-            onBlur={handleBlur}
-            onChange={handleChange}
-            type="radio"
-            value="small"
-          />
-          Small (6 inch diameter)
-        </label>
-
-        <label>
-          <input
-            checked={values.pieSizePreference === "medium"}
-            name="pieSizePreference"
-            onBlur={handleBlur}
-            onChange={handleChange}
-            type="radio"
-            value="medium"
-          />
-          Medium (10 inch diameter)
-        </label>
-
-        <label>
-          <input
-            checked={values.pieSizePreference === "large"}
-            name="pieSizePreference"
-            onBlur={handleBlur}
-            onChange={handleChange}
-            type="radio"
-            value="large"
-          />
-          Large (14 inch diameter)
-        </label>
-        {touched.pieSizePreference && errors.pieSizePreference && (
-          <p>{errors.pieSizePreference}</p>
+        </Label>
+        {touched.email && errors.email && (
+          <ErrorMessage>{errors.email}</ErrorMessage>
         )}
 
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+        <RadioGroup>
+          <p>Pie Size Preference</p>
+          <label>
+            <input
+              checked={values.pieSizePreference === "hand"}
+              name="pieSizePreference"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              type="radio"
+              value="hand"
+            />
+            Hand Pie
+          </label>
+
+          <label>
+            <input
+              checked={values.pieSizePreference === "small"}
+              name="pieSizePreference"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              type="radio"
+              value="small"
+            />
+            Small (6 inch diameter)
+          </label>
+
+          <label>
+            <input
+              checked={values.pieSizePreference === "medium"}
+              name="pieSizePreference"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              type="radio"
+              value="medium"
+            />
+            Medium (10 inch diameter)
+          </label>
+
+          <label>
+            <input
+              checked={values.pieSizePreference === "large"}
+              name="pieSizePreference"
+              onBlur={handleBlur}
+              onChange={handleChange}
+              type="radio"
+              value="large"
+            />
+            Large (14 inch diameter)
+          </label>
+          {touched.pieSizePreference && errors.pieSizePreference && (
+            <ErrorMessage>{errors.pieSizePreference}</ErrorMessage>
+          )}
+        </RadioGroup>
+
+        <Button type="submit">Submit</Button>
+      </Form>
+    </Root>
   );
 };
 

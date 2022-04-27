@@ -1,11 +1,12 @@
-import './App.styles';
-import SignUpForm from '../SignUpForm/SignUpForm';
+import "./App.styles";
+import SignUpForm from "../SignUpForm/SignUpForm";
+import { Root } from "./App.styles";
 
 function App() {
   return (
-    <div className="App">
-      <SignUpForm/>
-    </div>
+    <Root className="App">
+      <SignUpForm />
+    </Root>
   );
 }
 
