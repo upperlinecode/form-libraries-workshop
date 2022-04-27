@@ -25,7 +25,7 @@ In previous experiences, you may have built forms from scratch. So, you may be w
 
 1. Clone this repository down to your local environment and navigate to the root directory. Run `npm install` and then `npm start` to ensure you can preview your app.
 
-1. Take some time to explore the app as it currently exists. Notice that we have created the `SignUpForm` component already - this is where you'll do the majority of your work for this lab.
+1. Take some time to explore the app as it currently exists. Notice that we have created the `SignUpForm` component already - this is where you'll do the majority of your work for this lab. All you should see right now is some unstyled text that says "Weekly Pie Sign Up".
 
 ## Guidance
 
