@@ -24,7 +24,6 @@ In previous experiences, you may have built forms from scratch. So, you may be w
 ## Getting Started
 
 1. Clone this repository down to your local environment and navigate to the root directory. Run `npm install` and then `npm start` to ensure you can preview your app.
-
 1. Take some time to explore the app as it currently exists. Notice that we have created the `SignUpForm` component already - this is where you'll do the majority of your work for this lab.
 
 ## Mock Up
@@ -42,6 +41,11 @@ In previous experiences, you may have built forms from scratch. So, you may be w
 - a size has been selected as one of the 4 choices  
 Use the errors from the Formik state to render the error messages beneath your inputs.
 4. **Handle Submit** - Your handle submit will get the values stored in Formik, however now that we've added validations take a look at the lifecycle of Formik and see if you can submit the form with errors.
+
+![image of alert indicating successful submission](submission_success.png)
+
+    Check to make sure that you can't submit and see the alert if you have inputted an invalid first name, last name or email, or have failed to provide a pie size.
+
 5. **Styling** - Replace the native html elements with some pre-built styled-components to make our app look more like the mockup.
 
 ## Extensions
@@ -53,3 +57,4 @@ Once you are done with the core exercises above, you are welcome to choose any o
 3. Add the validation rule so that first name and last name cannot be the same thing. This will teach you how you reference other form values for you validations.
 4. Try adding additional complex form input types (like a slider or single select with styled buttons), and ensure that their state is still properly stored and manipulated (using the React dev tools).
 5. Try repeating the exercise with [React Hook Form](https://react-hook-form.com/), since you'll see both Formik and React Hook Form. This is just another library that handles form state and have a lot of similarities in their core concepts.
+

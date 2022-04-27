@@ -7,6 +7,7 @@ function App() {
     <Root className="App">
       <SignUpForm />
     </Root>
+
   );
 }
 

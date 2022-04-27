@@ -10,4 +10,5 @@ export const Root = styled.div`
   justify-content: center;
   min-height: 100vh;
   min-width: 100vw;
+
 `;

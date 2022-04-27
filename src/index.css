@@ -5,9 +5,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  --light-purple: #b8b8d1;
+  --light-purple-transparent: rgba(184, 184, 209, 0.8);
+  --navy: #1f363d;
+  --mint-green: #ddffd9;
+  --medium-purple: #9c528b;
+  --dark-purple: #6e4555;
+  background: url('https://www.inspiredtaste.net/wp-content/uploads/2016/06/Blueberry-Pie-Recipe-2-1200.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
