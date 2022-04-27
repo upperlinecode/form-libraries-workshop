@@ -1,17 +1,29 @@
 import { useFormik } from "formik";
+import * as Yup from "yup";
+
+const validationSchema = Yup.object({
+  firstName: Yup.string().min(3).max(10).required(),
+  lastName: Yup.string().min(3).max(10),
+  email: Yup.string().email().required(),
+  pieSizePreference: Yup.string()
+    .oneOf(["hand", "small", "medium", "large"])
+    .required(),
+});
 
 const SignUpForm = () => {
-  const { values, handleBlur, handleChange, handleSubmit } = useFormik({
-    initialValues: {
-      firstName: "",
-      lastName: "",
-      email: "",
-      pieSizePreference: "",
-    },
-    onSubmit: (submittedValues) => {
-      alert(JSON.stringify(submittedValues, null, 2));
-    },
-  });
+  const { values, touched, errors, handleBlur, handleChange, handleSubmit } =
+    useFormik({
+      initialValues: {
+        firstName: "",
+        lastName: "",
+        email: "",
+        pieSizePreference: "",
+      },
+      onSubmit: (submittedValues) => {
+        alert(JSON.stringify(submittedValues, null, 2));
+      },
+      validationSchema,
+    });
 
   return (
     <div className="SignUpForm">
@@ -28,6 +40,7 @@ const SignUpForm = () => {
             value={values.firstName}
           />
         </label>
+        {touched.firstName && errors.firstName && <p>{errors.firstName}</p>}
 
         <label>
           Last Name
@@ -39,6 +52,7 @@ const SignUpForm = () => {
             value={values.lastName}
           />
         </label>
+        {touched.lastName && errors.lastName && <p>{errors.lastName}</p>}
 
         <label>
           Email
@@ -50,6 +64,7 @@ const SignUpForm = () => {
             value={values.email}
           />
         </label>
+        {touched.email && errors.email && <p>{errors.email}</p>}
 
         <p>Pie Size Preference</p>
         <label>
@@ -99,6 +114,9 @@ const SignUpForm = () => {
           />
           Large (14 inch diameter)
         </label>
+        {touched.pieSizePreference && errors.pieSizePreference && (
+          <p>{errors.pieSizePreference}</p>
+        )}
 
         <button type="submit">Submit</button>
       </form>
