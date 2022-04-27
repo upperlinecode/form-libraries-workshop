@@ -27,25 +27,29 @@ In previous experiences, you may have built forms from scratch. So, you may be w
 
 1. Take some time to explore the app as it currently exists. Notice that we have created the `SignUpForm` component already - this is where you'll do the majority of your work for this lab. All you should see right now is some unstyled text that says "Weekly Pie Sign Up".
 
-## Guidance
-
-1. **Create a basic Formik form** - get a basic form up and running without styling. Note that you should be using the [useFormik hook](https://formik.org/docs/api/useFormik), not the `<Formik>` component.  
-1. **Add in styling using Styled Components** - Refactor your form to match the mockup by creating styled components. By the end of this refactor, you should have the `first name`, `last name`, `email`, and `pie size` fields on your form matched to the mock-up, using exclusively styled components. A quick visual check of your code should show no raw HTML elements - all should be named styled components.
-1. **Form Validation** - Add form validation with Yup. For now, this should check that first name and last name are longer than 2 characters and shorter than 50 characters, the email is valid, and that a size has been selected.
-1. **Handle Submit** - Check to make sure your function works by writing an onSubmit function that creates an alert with all of the stored form values. You'll know you were successful in submitting the form for now if you can see something like this as an alert:
-
-    ![image of alert indicating successful submission](submission_success.png)
-
-    Check to make sure that you can't submit and see the alert if you have inputted an invalid first name, last name or email, or have failed to provide a pie size.
-
 ## Mock Up
 
 ![form mockup](mockup.png)
+
+## Guidance
+
+1. **Create the initial form structure** - Create an uncontrolled form with the fields `firstName`, `lastName`, `email`, and `pieSizePreference`. No need to handle submit or handling change, we'll let Formik handle all the state and actions that flow through our form in the following steps. Also, leave this unstyled, we'll take care of styling at the end.
+2. **Add Formik to handle your forms state management** - Note that you should be using the [useFormik hook](https://formik.org/docs/api/useFormik), not the `<Formik>` component. Let Formik handle the storing of values, errors, and touched states. By the end of this you should be able to see the values and touches states from Formik when you interact with your form. For submitting, console.log or alert the values from your form. **Note:** for this exercise lets focus on useFormik and avoid using the prebuilt form element components from Formik.
+3. **Form Validation** - Our form does not have any error states, so lets add form validation with Yup. For now, you can use these validation rules:
+- first name is required, must be longer than 2 characters, and have a max of 10 characters
+- last name must be longer than 2 characters and have a max of 10 characters
+- email is a required valid email address (hint: take a close look at the Yup docs)
+- a size has been selected as one of the 4 choices  
+Use the errors from the Formik state to render the error messages beneath your inputs.
+4. **Handle Submit** - Your handle submit will get the values stored in Formik, however now that we've added validations take a look at the lifecycle of Formik and see if you can submit the form with errors.
+5. **Styling** - Replace the native html elements with some pre-built styled-components to make our app look more like the mockup.
 
 ## Extensions
 
 Once you are done with the core exercises above, you are welcome to choose any of the below extensions:
 
-1. Try repeating the exercise with [React Hook Form](https://react-hook-form.com/), since you'll see both Formik and React Hook Form used on different projects
-1. Try adding additional complex form input types (like a slider or single select with styled buttons), and ensure that their state is still properly stored and manipulated (using the React dev tools).
-1. Add additional error handling so that a user receives more readable alert messages and error messages when they fail to enter valid data.
+1. Add a button that allows you to add multiple people's first name, last name, email, and pie size. This will teach you how Formik handles arrays of form data.
+2. Update our validationSchema to have better validation messaging per rule.
+3. Add the validation rule so that first name and last name cannot be the same thing. This will teach you how you reference other form values for you validations.
+4. Try adding additional complex form input types (like a slider or single select with styled buttons), and ensure that their state is still properly stored and manipulated (using the React dev tools).
+5. Try repeating the exercise with [React Hook Form](https://react-hook-form.com/), since you'll see both Formik and React Hook Form. This is just another library that handles form state and have a lot of similarities in their core concepts.
