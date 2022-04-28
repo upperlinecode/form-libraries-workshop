@@ -1,8 +1,10 @@
+import { Root } from "./SignUpForm.styles";
+
 const SignUpForm = () => {
   return (
-    <div className="SignUpForm">
+    <Root className="SignUpForm">
       <h1>Weekly Pie Sign Up</h1>
-    </div>
+    </Root>
   );
 };
 
