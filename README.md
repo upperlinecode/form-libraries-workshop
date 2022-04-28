@@ -35,7 +35,12 @@ In previous experiences, you may have built forms from scratch. So, you may be w
 1. **Create the initial form structure with HTML elements** - Create an uncontrolled form with the fields `firstName`, `lastName`, `email`, and `pieSizePreference`. No need to handle submit or handling change, we'll let Formik handle all the state and actions that flow through our form in steps 2-5.
    - If you wish to match the mockup, you'll need to nest your inputs _inside_ their corresponding label elements.
    - Pre-made styled components you may wish to use if you want to match the mockup: `PieForm`, `TextFieldLabel`, `TextFieldInput`, `Root`, `Title`, `RadioGroup`
-2. **Add Formik to handle your forms state management** - Note that you should be using the [useFormik hook](https://formik.org/docs/api/useFormik), not the `<Formik>` component. Let Formik handle the storing of values, errors, and touched states - to do this, you'll need both `onChange` and `onBlur` event handlers. You also want this form to be controlled, so make sure to update the value property, as demonstrated in the documentation. By the end of this you should be able to see the values and touches states from Formik when you interact with your form. For submitting, console.log or alert the values from your form. **Note:** for this exercise lets focus on useFormik and avoid using the prebuilt form element components from Formik.
+2. **Add Formik to handle your forms state management** - Note that you should be using the [useFormik hook](https://formik.org/docs/api/useFormik), not the `<Formik>` component.
+   - Let Formik handle the storing of values, errors, and touched states - to do this, you'll need both `onChange` and `onBlur` event handlers.
+   - You also want this form to be controlled, so make sure to update the value property, as demonstrated in the documentation.
+   - By the end of this you should be able to see the values and touches states from Formik when you interact with your form.
+   - For submitting, console.log or alert the values from your form.
+   - **Note:** for this exercise lets focus on useFormik and avoid using the prebuilt form element components from Formik.
 3. **Form Validation** - Our form does not have any error states, so lets add [form validation with Yup](https://formik.org/docs/guides/validation). For now, you can use these validation rules:
 
    - first name is required, must be longer than 2 characters, and have a max of 10 characters
