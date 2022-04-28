@@ -3,9 +3,9 @@ import * as Yup from "yup";
 import {
   Button,
   ErrorMessage,
-  Form,
-  Input,
-  Label,
+  PieForm,
+  TextFieldInput,
+  TextFieldLabel,
   RadioGroup,
   Root,
   Title,
@@ -39,45 +39,45 @@ const SignUpForm = () => {
     <Root className="SignUpForm">
       <Title>Weekly Pie Sign Up</Title>
 
-      <Form onSubmit={handleSubmit}>
-        <Label>
+      <PieForm onSubmit={handleSubmit}>
+        <TextFieldLabel>
           First Name
-          <Input
+          <TextFieldInput
             name="firstName"
             onBlur={handleBlur}
             onChange={handleChange}
             type="text"
             value={values.firstName}
           />
-        </Label>
+        </TextFieldLabel>
         {touched.firstName && errors.firstName && (
           <ErrorMessage>{errors.firstName}</ErrorMessage>
         )}
 
-        <Label>
+        <TextFieldLabel>
           Last Name
-          <Input
+          <TextFieldInput
             name="lastName"
             onBlur={handleBlur}
             onChange={handleChange}
             type="text"
             value={values.lastName}
           />
-        </Label>
+        </TextFieldLabel>
         {touched.lastName && errors.lastName && (
           <ErrorMessage>{errors.lastName}</ErrorMessage>
         )}
 
-        <Label>
+        <TextFieldLabel>
           Email
-          <Input
+          <TextFieldInput
             name="email"
             onBlur={handleBlur}
             onChange={handleChange}
             type="text"
             value={values.email}
           />
-        </Label>
+        </TextFieldLabel>
         {touched.email && errors.email && (
           <ErrorMessage>{errors.email}</ErrorMessage>
         )}
@@ -137,9 +137,8 @@ const SignUpForm = () => {
         </RadioGroup>
 
         <Button type="submit">Submit</Button>
-      </Form>
+      </PieForm>
     </Root>
-
   );
 };
 
