@@ -32,16 +32,22 @@ In previous experiences, you may have built forms from scratch. So, you may be w
 
 ## Guidance
 
-1. **Create the initial form structure** - Create an uncontrolled form with the fields `firstName`, `lastName`, `email`, and `pieSizePreference`. No need to handle submit or handling change, we'll let Formik handle all the state and actions that flow through our form in the following steps. Also, leave this unstyled, we'll take care of styling at the end.
-2. **Add Formik to handle your forms state management** - Note that you should be using the [useFormik hook](https://formik.org/docs/api/useFormik), not the `<Formik>` component. Let Formik handle the storing of values, errors, and touched states. By the end of this you should be able to see the values and touches states from Formik when you interact with your form. For submitting, console.log or alert the values from your form. **Note:** for this exercise lets focus on useFormik and avoid using the prebuilt form element components from Formik.
-3. **Form Validation** - Our form does not have any error states, so lets add form validation with Yup. For now, you can use these validation rules:
-- first name is required, must be longer than 2 characters, and have a max of 10 characters
-- last name must be longer than 2 characters and have a max of 10 characters
-- email is a required valid email address (hint: take a close look at the Yup docs)
-- a size has been selected as one of the 4 choices  
-Use the errors from the Formik state to render the error messages beneath your inputs.
+1. **Create the initial form structure with HTML elements** - Create an uncontrolled form with the fields `firstName`, `lastName`, `email`, and `pieSizePreference`. No need to handle submit or handling change, we'll let Formik handle all the state and actions that flow through our form in steps 2-5.
+   - If you wish to match the mockup, you'll need to nest your inputs _inside_ their corresponding label elements.
+   - Pre-made styled components you may wish to use if you want to match the mockup: `PieForm`, `TextFieldLabel`, `TextFieldInput`, `Root`, `Title`, `RadioGroup`
+2. **Add Formik to handle your forms state management** - Note that you should be using the [useFormik hook](https://formik.org/docs/api/useFormik), not the `<Formik>` component. Let Formik handle the storing of values, errors, and touched states - to do this, you'll need both `onChange` and `onBlur` event handlers. You also want this form to be controlled, so make sure to update the value property, as demonstrated in the documentation. By the end of this you should be able to see the values and touches states from Formik when you interact with your form. For submitting, console.log or alert the values from your form. **Note:** for this exercise lets focus on useFormik and avoid using the prebuilt form element components from Formik.
+3. **Form Validation** - Our form does not have any error states, so lets add [form validation with Yup](https://formik.org/docs/guides/validation). For now, you can use these validation rules:
+
+   - first name is required, must be longer than 2 characters, and have a max of 10 characters
+   - last name must be longer than 2 characters and have a max of 10 characters
+   - email is a required valid email address (hint: take a close look at the Yup docs)
+   - a size has been selected as one of the 4 choices: "hand", "small", "medium", or "large".
+
+> You may want to reference the [yup reference](https://github.com/jquense/yup#table-of-contents) to see what validation methods are available.
+
 4. **Handle Submit** - Your handle submit will get the values stored in Formik, however now that we've added validations take a look at the lifecycle of Formik and see if you can submit the form with errors.
-5. **Styling** - Replace the native html elements with some pre-built styled-components to make our app look more like the mockup.
+5. **Errors** - Use the errors from the Formik state to render the error messages beneath your inputs. To match the mockup, render these errors in a separate HTML element beneath each corresponding input.
+   - Pre-made styled components you may wish to use if you want to match the mockup: `PieErrorMessage`
 
 ## Extensions
 

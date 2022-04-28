@@ -32,7 +32,7 @@ export const ErrorMessage = styled.p`
   margin: -20px 0 20px;
 `;
 
-export const Input = styled.input`
+export const TextFieldInput = styled.input`
   margin-bottom: 20px;
   box-sizing: border-box;
   border-color: purple;
@@ -42,14 +42,14 @@ export const Input = styled.input`
   padding-left: 10px;
 `;
 
-export const Label = styled.label`
+export const TextFieldLabel = styled.label`
   align-items: center;
   display: flex;
   flex-direction: column;
   font-weight: bold;
 `;
 
-export const Form = styled.form`
+export const PieForm = styled.form`
   align-items: center;
   display: flex;
   flex-direction: column;
